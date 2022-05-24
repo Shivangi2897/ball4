@@ -19,3 +19,68 @@ class OopsApproach{
         }
     }
 }
+
+or
+
+static final int HEIGHT = 480;
+static final int WIDTH = 640;
+static final int DIAMETER = 10;
+int position = 0;
+
+   void settings() {
+        size(WIDTH, HEIGHT);
+    }
+    void setup(){
+  }
+    void draw(){
+       OopsApproach Oa= new OopsApproach();
+       Oa.balls();
+}
+class OopsApproach{
+  void balls(){
+            ellipse(position,HEIGHT/5,DIAMETER, DIAMETER);
+            ellipse(2*position,2*HEIGHT/5,DIAMETER, DIAMETER);
+            ellipse(3*position,3*HEIGHT/5,DIAMETER, DIAMETER);
+            ellipse(4*position,4*HEIGHT/5,DIAMETER, DIAMETER);
+             position +=1;
+        }
+    }
+}
+  
+  
+  or
+  
+  import processing.core.PApplet;
+
+import java.util.ArrayList;
+
+public class OOPFourBall extends PApplet {
+
+    public static final int HEIGHT = 480;
+    public static final int WIDTH = 640;
+    public static ArrayList<Ball> balls = new ArrayList<>();
+
+    @Override
+    public void settings() {
+        size(WIDTH, HEIGHT);
+    }
+
+    @Override
+    public void setup() {
+        for (int speed = 1; speed <= 4; speed++) {
+            balls.add(new Ball(speed, speed * HEIGHT / 5));
+        }
+    }
+
+    @Override
+    public void draw() {
+        for (Ball ball : balls) {
+            ball.ball(this);
+            ball.newPosition();
+        }
+    }
+
+    public static void main(String[] args) {
+        PApplet.main("OOPFourBall",args);
+    }
+}
