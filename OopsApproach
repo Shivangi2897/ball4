@@ -1,0 +1,21 @@
+static final int HEIGHT = 480;
+static final int WIDTH = 640;
+static final int DIAMETER = 10;
+static int position = 0;
+void settings(){
+  size(WIDTH,HEIGHT);
+}
+void setup(){
+}
+void draw(){
+  OopsApproach Oa= new OopsApproach();
+  Oa.balls();
+}
+class OopsApproach{
+  void balls(){
+        for (int speed = 1; speed <= 4; speed++) {
+            ellipse(speed*position,speed*HEIGHT/5,DIAMETER, DIAMETER);
+        }
+        position +=1;
+    }
+}
